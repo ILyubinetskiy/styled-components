@@ -8,7 +8,7 @@ const App = () => {
       textAlign: "center",
       backgroundColor: "cyan"
     }}>
-      <h1>styled-componets</h1>
+      <h1 >styled-components</h1>
     </div>
   )
 }

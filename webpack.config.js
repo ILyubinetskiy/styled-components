@@ -1,8 +1,6 @@
-const path = require('path');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
-
+const path = require('path');
 const deps = require("./package.json").dependencies;
 
 module.exports = {
@@ -30,13 +28,13 @@ module.exports = {
     ],
   },
   plugins: [
+    // To learn more about the usage of this plugin, please visit https://webpack.js.org/plugins/module-federation-plugin/
     new ModuleFederationPlugin({
-      name: 'styled_сomponets',
+      name: 'styled_components',
       filename: 'remoteEntry.js',
       exposes: {
         './App': './src/App',
       },
-      library: { type: "var", name: "styled_сomponets" },
       shared: {
         react: {
           eager: true,
