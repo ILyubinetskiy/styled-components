@@ -28,10 +28,10 @@ module.exports = {
     ],
   },
   plugins: [
-    // To learn more about the usage of this plugin, please visit https://webpack.js.org/plugins/module-federation-plugin/
     new ModuleFederationPlugin({
       name: 'styled_components',
       filename: 'remoteEntry.js',
+      library: { type: "var", name: "styled_сomponets" },
       exposes: {
         './App': './src/App',
       },
