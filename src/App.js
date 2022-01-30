@@ -1,6 +1,10 @@
 import React from "react";
+import { tests } from "store/store";
 
 const App = () => {
+  // const { users } = useStore();
+  tests()
+  // console.log('object', users)
   return (
     <div style={{
       margin: "10px",
