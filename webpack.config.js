@@ -31,7 +31,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'styled_components',
       filename: 'remoteEntry.js',
-      library: { type: "var", name: "styled_сomponets" },
+      library: { type: "var", name: "styled_components" },
       exposes: {
         './App': './src/App',
       },
