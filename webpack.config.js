@@ -1,16 +1,21 @@
+const path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
-const path = require('path');
+
+const deps = require("./package.json").dependencies;
 
 module.exports = {
   entry: './src/index',
   mode: 'development',
   devServer: {
-    static: path.join(__dirname, 'dist'),
+    static: path.resolve(__dirname, 'dist'),
     port: 3002,
   },
   output: {
-    publicPath: 'auto',
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
+    publicPath: "http://localhost:3002/",
   },
   module: {
     rules: [
@@ -26,14 +31,24 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'app2',
+      name: 'styled_сomponets',
       filename: 'remoteEntry.js',
       exposes: {
         './App': './src/App',
       },
-      library: { type: "var", name: "app2" },
-      shared: ["react", "react-dom"]
-
+      library: { type: "var", name: "styled_сomponets" },
+      shared: {
+        react: {
+          eager: true,
+          singleton: true,
+          requiredVersion: deps.react
+        },
+        ["react-dom"]: {
+          eager: true,
+          singleton: true,
+          requiredVersion: deps["react-dom"]
+        }
+      }
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
