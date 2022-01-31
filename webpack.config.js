@@ -46,10 +46,8 @@ module.exports = {
       name: "styled_components",
       filename: "remoteEntry.js",
       remotes: {
-        store: "store@http://localhost:4200/remoteEntry.js",
-      },
-      exposes: {
-        './App': './src/App',
+        store: "store@http://localhost:3004/remoteEntry.js",
+        // nav: "nav@http://localhost:3001/remoteEntry.js",
       },
       shared: {
         ...deps,
@@ -62,6 +60,24 @@ module.exports = {
           requiredVersion: deps["react-dom"],
         },
       },
+      // filename: "remoteEntry.js",
+      // remotes: {
+      //   store: "store@http://localhost:4200/remoteEntry.js",
+      // },
+      // exposes: {
+      //   './App': './src/App',
+      // },
+      // shared: {
+      //   ...deps,
+      //   react: {
+      //     singleton: true,
+      //     requiredVersion: deps.react,
+      //   },
+      //   "react-dom": {
+      //     singleton: true,
+      //     requiredVersion: deps["react-dom"],
+      //   },
+      // },
     }),
     new HtmlWebPackPlugin({
       template: './public/index.html',

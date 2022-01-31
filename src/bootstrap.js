@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import { StoreProvider } from "store/store";
+import { StoreProvider } from "store/store";
 import App from "./App";
 
 ReactDOM.render(
-  // <StoreProvider>
+  <StoreProvider>
     <App />
-  // </StoreProvider>
+   </StoreProvider>
   , document.getElementById("root"));

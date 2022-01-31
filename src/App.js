@@ -1,9 +1,9 @@
 import React from "react";
-import { tests } from "store/store";
+import { StoreProvider, useStore } from "store/store";
 
 const App = () => {
-  // const { users } = useStore();
-  tests()
+  const { count, increment } = useStore();
+  // tests()
   // console.log('object', users)
   return (
     <div style={{
@@ -12,7 +12,15 @@ const App = () => {
       textAlign: "center",
       backgroundColor: "cyan"
     }}>
-      <h1 >styled-components</h1>
+      <h1 >{count}</h1>
+      <div>
+        <button
+          onClick={increment}
+          className="bg-indigo-800 text-white font-bold py-2 px-4 rounded"
+        >
+          Add To Cart
+        </button>
+      </div>
     </div>
   )
 }
