@@ -61,25 +61,7 @@ module.exports = {
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
-      },
-      // filename: "remoteEntry.js",
-      // remotes: {
-      //   store: "store@http://localhost:4200/remoteEntry.js",
-      // },
-      // exposes: {
-      //   './App': './src/App',
-      // },
-      // shared: {
-      //   ...deps,
-      //   react: {
-      //     singleton: true,
-      //     requiredVersion: deps.react,
-      //   },
-      //   "react-dom": {
-      //     singleton: true,
-      //     requiredVersion: deps["react-dom"],
-      //   },
-      // },
+      }
     }),
     new HtmlWebPackPlugin({
       template: './public/index.html',
