@@ -12,8 +12,6 @@ const App = () => {
       ...users
     ])
   }, [users]);
-
-
   
   return (
     <Box
@@ -37,9 +35,6 @@ const App = () => {
     </Box>
   )
 };
-
-
-
 
 export default App;
 
